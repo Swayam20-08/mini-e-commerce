@@ -30,7 +30,6 @@ export default function ProductCard({ product }: ProductCardProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Product Image */}
       <div className="relative aspect-square overflow-hidden">
         <img
           src={product.image}
@@ -38,7 +37,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
         
-        {/* Favorite Button */}
         <button
           onClick={handleToggleFavorite}
           className={cn(
@@ -51,7 +49,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           <Heart size={16} fill={isFavorite ? "currentColor" : "none"} />
         </button>
 
-        {/* Add to Cart Button */}
         <button
           onClick={handleAddToCart}
           className={cn(
@@ -64,7 +61,6 @@ export default function ProductCard({ product }: ProductCardProps) {
         </button>
       </div>
 
-      {/* Product Info */}
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">
           <h3 className="font-semibold text-gray-900 line-clamp-2 group-hover:text-primary-600 transition-colors">
@@ -76,7 +72,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.description}
         </p>
 
-        {/* Rating */}
         <div className="flex items-center mb-3">
           <div className="flex items-center">
             {[...Array(5)].map((_, i) => (
@@ -97,7 +92,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           </span>
         </div>
 
-        {/* Price and Stock */}
         <div className="flex items-center justify-between">
           <div className="text-lg font-bold text-gray-900">
             ${product.price.toFixed(2)}
@@ -112,7 +106,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        {/* Category */}
         <div className="mt-2">
           <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
             {product.category}
@@ -121,4 +114,5 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
     </div>
   );
+
 } 

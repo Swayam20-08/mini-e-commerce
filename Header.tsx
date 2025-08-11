@@ -23,13 +23,11 @@ export default function Header() {
     setCartCount(getCartCount());
   }, [getCartCount]);
 
-  // Update cart count when cart changes
   useEffect(() => {
     setCartCount(getCartCount());
   }, [getCartCount]);
 
   const handleLogin = () => {
-    // Simulate login with mock user
     login({
       id: '1',
       name: 'John Doe',

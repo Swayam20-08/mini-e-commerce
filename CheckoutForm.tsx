@@ -37,7 +37,6 @@ export default function CheckoutForm({ onClose, cartTotal }: CheckoutFormProps) 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
-    // Validate shipping address
     if (!formData.shippingAddress.firstName) newErrors.firstName = 'First name is required';
     if (!formData.shippingAddress.lastName) newErrors.lastName = 'Last name is required';
     if (!formData.shippingAddress.email) newErrors.email = 'Email is required';
@@ -48,7 +47,6 @@ export default function CheckoutForm({ onClose, cartTotal }: CheckoutFormProps) 
     if (!formData.shippingAddress.zipCode) newErrors.zipCode = 'ZIP code is required';
     if (!formData.shippingAddress.country) newErrors.country = 'Country is required';
 
-    // Validate payment method
     if (formData.paymentMethod === 'credit-card') {
       if (!formData.cardNumber) newErrors.cardNumber = 'Card number is required';
       if (!formData.cardExpiry) newErrors.cardExpiry = 'Expiry date is required';
@@ -67,10 +65,8 @@ export default function CheckoutForm({ onClose, cartTotal }: CheckoutFormProps) 
 
     setIsSubmitting(true);
 
-    // Simulate order processing
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // Create order
     const order = {
       id: Date.now().toString(),
       userId: user!.id,
@@ -87,7 +83,6 @@ export default function CheckoutForm({ onClose, cartTotal }: CheckoutFormProps) 
     closeCart();
     onClose();
 
-    // Show success message
     alert('Order placed successfully! Thank you for your purchase.');
   };
 
@@ -415,4 +410,5 @@ export default function CheckoutForm({ onClose, cartTotal }: CheckoutFormProps) 
       </div>
     </div>
   );
+
 } 
